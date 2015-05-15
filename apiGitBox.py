@@ -8,9 +8,9 @@ import requests
 import os
 
 ##Keys de Dropbox
-app_key_dropbox = '5n1kdyjscee75nf'
-app_secret_dropbox = 'gwro8d6vafi2feq'
-accessToken = '4-vfoE-ELS0AAAAAAAAF6_oW2DBJnW7hWWkjukaAHXCxrrCxaauXpUjej1qJuGIH'
+app_key_dropbox = 'sd6vay5bw7p8rpg'
+app_secret_dropbox = '88lqmkbkey2nifl'
+accessToken = 'F9vvAk2B_kAAAAAAAAAABjWE03eVd27Nri3Qm7kxS-75aiXf3RVkw3ErpvHmDd1b'
 client = dropbox.client.DropboxClient(accessToken)
 
 ### Keys de GitHub

@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es" dir="ltr">
+
+<head>
+  <title>GitBox</title>
+  <meta name="description" content="P&aacute;gina web del trabajo de Sistemas Distribuidos" />
+  <meta name="keywords" content="github, dropbox" />
+  <meta http-equiv="content-type" content="text/html; charset=windows-1252" />
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='estilos/style.css')}}" />
+  <script type="text/javascript">
+	function nueva_pagina(pagina){
+	  window.location.href = 'http://localhost:5000/'+pagina+'/';
+	}
+  </script>
+</head>
+
+<body>
+  <div id="main">
+    <div id="header">
+      <div id="logo">
+        <div id="logo_text">
+          <!-- class="logo_colour", allows you to change the colour of the text -->
+          <h1><a class="enlace" onclick="nueva_pagina('index')">Git<span class="logo_colour">Box</span></a></h1>
+          <h2>Sistemas Distribuidos. Creaci&oacute;n de una API propia usando las que proporcionan DropBox y GitHub</h2>
+        </div>
+      </div>
+      <div id="menubar">
+        <ul id="menu">
+          <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
+          <li><a class="enlace" onclick="nueva_pagina('index')">Inicio</a></li>
+          <li><a class="enlace" onclick="nueva_pagina('buscar_usuario')">GitHub</a></li>
+		  <li class="selected"><a class="enlace" onclick="nueva_pagina('dropbox')">Dropbox</a></li>
+          <li><a class="enlace" onclick="nueva_pagina('autores')">Autores</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="content_header"></div>
+    <div id="site_content">
+      <div id="content">
+        <h1>Cuenta de DropBox</h1>
+		<table>
+			<tr>
+				<td><center><img src="{{url_for('static', filename='estilos/dropbox.png')}}" alt="Dropbox" height="60" width="60"></center></td>
+				<td>Nombre: {{usuario['display_name']}}<br> Email: {{usuario['email']}}</td>
+			</tr>
+		</table>
+		<h1>Contenido de la carpeta de la aplicación</h1>
+        {% if exito == 1 %}
+		<div class='exito'>{{exito}}</div>
+		{% endif %}
+		<table>	
+			<th colspan="2">Archivo</th><th>Última modificación</th><th>Bytes</th><th>Borrar</th><th>Descargar</th>
+			{% for archivo in carpeta['contents'] %}
+			<tr>
+				<td>{% if archivo['mime_type'] == 'text/plain' %}
+						<img src="{{url_for('static', filename='estilos/plain.png')}}" alt="" height="20" width="20">
+					{% else %}
+						<img src="{{url_for('static', filename='estilos/zip.png')}}" alt="" height="20" width="20">
+					{% endif %}
+				</td>
+				<td>{{archivo['path']}}</td>
+				<td>{{archivo['modified']}}</td>
+				<td>{{archivo['bytes']}}</td>
+				<td>
+					<center>
+						<a class="enlace" onclick="nueva_pagina('erase_file{{archivo['path']}}')">						
+							<img src="{{url_for('static', filename='estilos/erase.png')}}" alt="" height="20" width="20">
+						</a>					
+					</center>
+				</td>				
+				<td>
+					<center>
+						<a class="enlace" onclick="nueva_pagina('download_file{{archivo['path']}}')">						
+							<img src="{{url_for('static', filename='estilos/down.png')}}" alt="" height="20" width="20">
+						</a>					
+					</center>
+				</td>
+			</tr>
+			{% endfor %}
+		</table>
+		<p>Los archivo serán descargados en la carpeta de trabajo del usuario.</p>
+      </div>
+    </div>
+    <div id="content_footer"></div>
+    <div id="footer">
+      <p><a class="enlace" onclick="nueva_pagina('index')">Inicio</a> | <a class="enlace" onclick="nueva_pagina('buscar_usuario')">GitHub</a> | <a class="enlace" onclick="nueva_pagina('autores')">Autores</a></p>
+      <p>Copyright &copy; Sistemas Distribuidos | <a href="http://validator.w3.org/check?uri=referer">HTML5</a> | <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a></p>
+    </div>
+  </div>
+</body>
+</html>

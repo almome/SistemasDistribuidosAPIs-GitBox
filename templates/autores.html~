@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es" dir="ltr">
+
+<head>
+  <title>GitBox</title>
+  <meta name="description" content="P&aacute;gina web del trabajo de Sistemas Distribuidos" />
+  <meta name="keywords" content="github, dropbox" />
+  <meta http-equiv="content-type" content="text/html; charset=windows-1252" />
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='estilos/style.css')}}" />
+  <script type="text/javascript">
+	function nueva_pagina(pagina){
+	  window.location.href = 'http://localhost:5000/'+pagina+'/';
+	}
+  </script>
+</head>
+
+<body>
+  <div id="main">
+    <div id="header">
+      <div id="logo">
+        <div id="logo_text">
+          <!-- class="logo_colour", allows you to change the colour of the text -->
+          <h1><a class="enlace" onclick="nueva_pagina('index')">Git<span class="logo_colour">Box</span></a></h1>
+          <h2>Sistemas Distribuidos. Creaci&oacute;n de una API propia usando las que proporcionan DropBox y GitHub</h2>
+        </div>
+      </div>
+      <div id="menubar">
+        <ul id="menu">
+          <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
+          <li><a class="enlace" onclick="nueva_pagina('index')">Inicio</a></li>
+          <li><a class="enlace" onclick="nueva_pagina('buscar_usuario')">GitHub</a></li>
+		  <li><a class="enlace" onclick="nueva_pagina('dropbox')">Dropbox</a></li>
+          <li class="selected"><a class="enlace" onclick="nueva_pagina('autores')">Autores</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="content_header"></div>
+    <div id="site_content">
+      <div id="content">
+        <!-- insert the page content here -->
+        <h1>Autores de la aplicación:</h1>
+        <ul>
+			<li>Alexandra Morón Méndez</li>
+			<li>Juan Manuel Hidalgo</li>
+			<li>José Carlos Solís Lojo</li>
+			<li>Alejandro Rosado Pérez</li>
+		</ul>
+      </div>
+    </div>
+    <div id="content_footer"></div>
+    <div id="footer">
+      <p><a class="enlace" onclick="nueva_pagina('index')">Inicio</a> | <a class="enlace" onclick="nueva_pagina('buscar_usuario')">GitHub</a> | <a class="enlace" onclick="nueva_pagina('autores')">Autores</a></p>
+      <p>Copyright &copy; Sistemas Distribuidos | <a href="http://validator.w3.org/check?uri=referer">HTML5</a> | <a href="http://jigsaw.w3.org/css-validator/check/referer">CSS</a></p>
+    </div>
+  </div>
+</body>
+</html>

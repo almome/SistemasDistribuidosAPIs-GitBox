@@ -1,0 +1,10 @@
+<html>
+<head>
+</head>
+<body>
+	<ul>
+	{% for i in range(n) %}
+	<li>{{i}}</li>
+	{% endfor %}
+</body>
+</html>

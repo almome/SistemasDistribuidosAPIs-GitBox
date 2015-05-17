@@ -5,7 +5,7 @@
 # las apis de GitHub y Dropbox para obtener información para
 # facilitar la visión y gestión de los datos en la web de GitBox.
 
-mport sys
+import sys
 reload(sys)
 sys.setdefaultencoding('UTF8')
 

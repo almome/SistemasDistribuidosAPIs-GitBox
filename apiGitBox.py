@@ -25,8 +25,8 @@ client = dropbox.client.DropboxClient(accessToken)
 
 ## Keys de GitHub
 # Evita banneos por exceso de peticiones de información
-app_id_github = '246703917863a48df5fb'
-app_secret_github = 'fe01ae79e1b65f5b669e144f9b4f9f569e976210'
+app_id_github = 'a7ba4b4c8371f86f889a'
+app_secret_github = '7b6f74ee608e6216dd9da6873ce1786258b7d6dd'
 
 app = Flask(__name__)
 

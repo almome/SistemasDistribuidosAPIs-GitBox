@@ -63,7 +63,10 @@ def get_userinfo_txt(owner_github):
     with open("info", "w") as outfile:
         outfile.write('Información del usuario\n')
         for i in range(30):
-            outfile.write(textos[i]+': '+str(data[indices[i]])+'\n')
+            try:
+                outfile.write(textos[i]+': '+str(data[indices[i]])+'\n')
+            except KeyError:
+                outfile.write(textos[i]+': '+'No definido\n')
 
     f = open('info', 'rb')
     nom = '/'+owner_github+'_info.txt'
